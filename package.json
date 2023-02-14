@@ -1,0 +1,40 @@
+{
+  "name": "links-game-ui",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "26.0.24",
+    "@types/node": "12.20.55",
+    "@types/react": "17.0.52",
+    "@types/react-dom": "17.0.18",
+    "bootstrap": "^4.6.2",
+    "react": "^17.0.2",
+    "react-bootstrap": "^1.6.6",
+    "react-dom": "^17.0.2",
+    "react-scripts": "4.0.3",
+    "typescript": "4.9.3"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "keywords": [],
+  "description": ""
+}
