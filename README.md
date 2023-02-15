@@ -1,3 +1,3 @@
-# Basic TypeScript Example
+# Links Game by Tyler Duic
 
-A simple [create-react-app](CRA-README.md) setup, showcasing one of the latest React-Bootstrap components!
+A simple Create React App setup with React-Bootstrap developed in TypeScript.
