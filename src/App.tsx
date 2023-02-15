@@ -60,7 +60,7 @@ const App: React.FC = () => {
           <h2 className="row">
             {linkValues.map((linkValue: number, index: number) => {
               return (
-                <div onClick={() => handleClick(index)}>
+                <div key={index} onClick={() => handleClick(index)}>
                   <Link id={index} value={linkValue} />
                 </div>
               );
