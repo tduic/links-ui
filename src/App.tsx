@@ -41,6 +41,11 @@ const App: React.FC = () => {
     <Container className="p-3">
       <Jumbotron>
         <h1 className="header">Links Game</h1>
+        <h3>
+          Starting with Player 1, alternate selecting either the first or last
+          link from the chain. The player with the highest score after all links
+          have been selected wins!
+        </h3>
       </Jumbotron>
       <h2>
         <Button variant="primary" className="mr-1">
@@ -50,34 +55,36 @@ const App: React.FC = () => {
           Player 2: {p2Score}
         </Button>
       </h2>
-      {linkValues.length > 0 ? (
-        <h2 className="row">
-          {linkValues.map((linkValue: number, index: number) => {
-            return (
-              <div onClick={() => handleClick(index)}>
-                <Link id={index} value={linkValue} />
-              </div>
-            );
-          })}
-        </h2>
-      ) : (
-        <h2>
-          {p1Score === p2Score
-            ? "It's a tie!"
-            : p1Score > p2Score
-            ? "Player 1 Wins!"
-            : "Player 2 Wins!"}
-          <div>
-            <Button
-              variant="secondary"
-              className="mr-1"
-              onClick={() => resetGame()}
-            >
-              Play Again?
-            </Button>
-          </div>
-        </h2>
-      )}
+      <Container className="p-4">
+        {linkValues.length > 0 ? (
+          <h2 className="row">
+            {linkValues.map((linkValue: number, index: number) => {
+              return (
+                <div onClick={() => handleClick(index)}>
+                  <Link id={index} value={linkValue} />
+                </div>
+              );
+            })}
+          </h2>
+        ) : (
+          <h2>
+            {p1Score === p2Score
+              ? "It's a tie!"
+              : p1Score > p2Score
+              ? "Player 1 Wins!"
+              : "Player 2 Wins!"}
+            <div>
+              <Button
+                variant="secondary"
+                className="mr-1"
+                onClick={() => resetGame()}
+              >
+                Play Again?
+              </Button>
+            </div>
+          </h2>
+        )}
+      </Container>
     </Container>
   );
 };
