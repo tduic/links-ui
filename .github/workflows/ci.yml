@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      # CRA treats lint warnings as build errors when CI=true.
+      CI: true
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'yarn'
+
+      # The repo is locked with yarn.lock (classic yarn), so install from it.
+      - run: yarn install --frozen-lockfile --non-interactive
+
+      - name: Typecheck
+        run: npx tsc --noEmit
+
+      - name: Unit tests
+        run: yarn test --watchAll=false
+
+      # react-scripts 4 uses webpack 4, which needs the legacy OpenSSL
+      # provider on Node 17+. Output goes to the runner only; the committed
+      # build/ directory is not touched.
+      - name: Build
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
+        run: yarn build
